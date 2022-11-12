@@ -1,1 +1,2 @@
-# app-php-kub
+# hello-python
+Very simple hello world python Flask application.
