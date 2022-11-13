@@ -42,3 +42,5 @@ Listar los servicios creados
 ```bash
 kubectl get svc
 ```
+
+Si ingresamos en la ip local: 192.168.59.100:32150
