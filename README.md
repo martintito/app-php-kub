@@ -20,3 +20,25 @@ Prueba de escalamiento del despliegue
 ```bash
 kubectl scale deploy nginx-d --replicas=3
 ```
+
+## PRUEBAS CON SERVICIOS
+
+Creando un servicio de tipo Nodeport
+
+```bash
+kubectl create deployment apache1 --httpd
+```
+
+Ver los detalles del componente creado
+
+```bash
+kubectl get all
+```
+```bash
+kubectl expose deploy apache1 --port=80 --type=Nodeport
+```
+
+Listar los servicios creados
+```bash
+kubectl get svc
+```
