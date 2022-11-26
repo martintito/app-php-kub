@@ -1,18 +1,10 @@
-package org.mtito.springcloud.msvc.usuarios.entity;
+package org.mtito.springcloud.msvc.cursos.msvccursos.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name="usuarios")
 public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
 
-    @Column(unique = true)
     private String email;
 
     private String password;

@@ -1,7 +1,7 @@
-package org.mtito.springcloud.msvc.usuarios.services;
+package org.mtito.springcloud.msvc.usuarios.msvcusuarios.services;
 
-import org.mtito.springcloud.msvc.usuarios.entity.Usuario;
-import org.mtito.springcloud.msvc.usuarios.repositories.UsuarioRepository;
+import org.mtito.springcloud.msvc.usuarios.msvcusuarios.entity.Usuario;
+import org.mtito.springcloud.msvc.usuarios.msvcusuarios.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,5 +37,21 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Transactional
     public void eliminar(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Usuario> listarPorIds(Iterable<Long> ids) {
+        return (List<Usuario>) repository.findAllById(ids);
+    }
+
+    @Override
+    public Optional<Usuario> porEmail(String email) {
+        return repository.porEmail(email);
+    }
+
+    @Override
+    public boolean existePorEmail(String email) {
+        return repository.existsByEmail(email);
     }
 }
